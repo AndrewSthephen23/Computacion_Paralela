@@ -1,0 +1,23 @@
+
+˜	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š÷½øÿÿÿÿ8´„¹ñ1J$7c1f63b5-2d87-4d2b-80f1-3e34c7318f47
+˜	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š÷½øÿÿÿÿ8µ„¹ñ1J$cace6c6e-ae12-41d2-856f-78fb8246e06e
+˜	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š÷½øÿÿÿÿ8µ„¹ñ1J$17f695de-ded7-4923-91b4-44312be511fb
+”	java:S101+"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Şâ¢…ùÿÿÿÿ8¶„¹ñ1J$277dc805-442a-4351-b7c9-7f1999969453
+ü
+java:S1598"³This file "Sumafinita.java" should be located in "ejemplo01" directory, not in "C:\Users\andrew\Documents\UNIVERSIDAD\SEPTIMO_CICLO\PROGRAMACION CONCURRENTE\CLASES CODE\Semana 1".(¯ğŸ™ıÿÿÿÿ8·„¹ñ1J$e36b6ce9-5fc7-4d77-9972-624eda5d3687
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯ğŸ™ıÿÿÿÿ8¹„¹ñ1J$790ade5e-6b11-443f-88df-86cb7f90ed7a
+
+java:S1659">Declare "h" and all following declarations on a separate line.(ãÖ…›8æ„¹ñ1J$ced13da5-3c7b-473e-9e81-fb34eaed158e
+i
+java:S1905"&Remove this unnecessary cast to "int".(ãÖ…›8è„¹ñ1J$5b7915e0-ef83-4f76-8b71-5c3d128b9c18
+„
+java:S2438"AReplace "argument 1" of type Thread with an instance of Runnable.(äñÒ¡8ë„¹ñ1J$249feab8-ed32-4b2a-bc51-a3f9ca0a6e3d
+¦
+java:S2142!"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(¬Àáªøÿÿÿÿ8í„¹ñ1J$bbb6f3d0-683e-4ecd-ab0a-aa85a0577b57
+p	java:S108!")Either remove or fill this block of code.(¬Àáªøÿÿÿÿ8ï„¹ñ1J$3a0f995f-484a-43e0-b45f-b9330d4512a2
+m	java:S106'"+Replace this use of System.out by a logger.(àğªü8ğ„¹ñ1J$d3dbe964-e03a-4dfe-b9ed-6a9989ab9f0d
+ˆ
+java:S1659,"@Declare "fin" and all following declarations on a separate line.(ôªâÏûÿÿÿÿ8ò„¹ñ1J$41837f22-e550-469f-b26e-28b50b80b924
+}
+java:S11615":Add the "@Override" annotation above this method signature(“–ış8ô„¹ñ1J$b854a2a7-147b-4133-af5b-22771aee400a
+m	java:S106@"+Replace this use of System.out by a logger.(Êßòû8õ„¹ñ1J$33faac43-7476-4e99-9d0b-5aace386b265

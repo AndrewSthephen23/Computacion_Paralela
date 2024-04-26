@@ -1,0 +1,9 @@
+
+ç
+java:S1598"ÄThis file "ServidorDeEco.java" should be located in "pkg03serechil01" directory, not in "C:\Users\andrew\Documents\UNIVERSIDAD\SEPTIMO_CICLO\PROGRAMACION CONCURRENTE\CLASES CODE\Semana 3\Parte 1".(Ÿ·šıÿÿÿÿ8¯ôı¿ñ1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ·šıÿÿÿÿ8Ä·ğ¿ñ1J$3ddc3773-8882-42db-a1aa-0395c4a793da
+’
+java:S2095"JUse try-with-resources or close this "ServerSocket" in a "finally" clause.(õ›çóúÿÿÿÿ8‚ºğ¿ñ1J$eef9bfdd-c9b7-4333-b26c-3fc94596383e
+m	java:S1061"+Replace this use of System.out by a logger.(³·§8ºğ¿ñ1J$8fa64dd6-ade3-4554-b731-f4c8aa295a51
+r
+java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8ºğ¿ñ1J$add3d658-c7b2-4757-9fdf-29050a89bcf5

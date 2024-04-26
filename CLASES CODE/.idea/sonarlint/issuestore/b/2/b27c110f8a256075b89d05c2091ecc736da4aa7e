@@ -1,0 +1,7 @@
+
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¥—½®ýÿÿÿÿ8êÙö·ñ1
+î
+java:S1598"¬This file "nop.java" should be located in "ejemplo01" directory, not in "C:\Users\andrew\Documents\UNIVERSIDAD\SEPTIMO_CICLO\PROGRAMACION CONCURRENTE\CLASES CODE\Semana 1".(¯ðŸ™ýÿÿÿÿJ$e6a92159-2300-4082-b987-75a4996c2cbd
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¯ðŸ™ýÿÿÿÿJ$72e8aba8-1afe-426a-a617-f950590582c7
+d
+java:S2094"BRemove this empty class, write its code or make it an "interface".(¥—½®ýÿÿÿÿ8îÙö·ñ1
