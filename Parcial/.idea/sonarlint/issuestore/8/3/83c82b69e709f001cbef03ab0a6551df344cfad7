@@ -1,0 +1,14 @@
+
+~python:S117"bRename this local variable "receiveDataThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßóÈùÿÿÿÿ
+zpython:S117 "^Rename this local variable "bDataReceived" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö¥šÆýÿÿÿÿ
+|python:S117'"`Rename this local variable "centroidsString" to match the regular expression ^[_a-z][a-z0-9_]*$.(£‹å´þÿÿÿÿ
+spython:S117&"]Rename this local variable "pointsString" to match the regular expression ^[_a-z][a-z0-9_]*$.(íøÏc
+epython:S100"ORename method "receiveData" to match the regular expression ^[a-z_][a-z0-9_]*$.(Àïß
+kpython:S1175"TRename this parameter "dataList" to match the regular expression ^[_a-z][a-z0-9_]*$.(þïóÒ
+mpython:S1175"VRename this parameter "dataString" to match the regular expression ^[_a-z][a-z0-9_]*$.(þïóÒ
+vpython:S1178"ZRename this local variable "pointData" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹ÉâÑúÿÿÿÿ
+spython:S1177"\Rename this local variable "pointString" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú„®ø
+dpython:S1005"MRename method "parseData" to match the regular expression ^[a-z_][a-z0-9_]*$.(þïóÒ
+qpython:S100;"URename method "calculateDistance" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹¨‚€þÿÿÿÿ
+xpython:S117@"\Rename this local variable "minDistance" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ç—•ÿÿÿÿÿ
+jpython:S100>"SRename method "calculateKMeans" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ã»í™

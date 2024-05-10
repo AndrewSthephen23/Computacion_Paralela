@@ -1,0 +1,25 @@
+
+†	java:S1129"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚ÒéüÿÿÿÿJ$f73208b1-0e76-4375-9f62-497c46e161a9
+	java:S112>"FDefine and throw a dedicated exception instead of using a generic one.(ò“…ÉJ$3d3f4212-bad9-43fc-932f-7ff87f9c182d
+•
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(›ä¹ºJ$d0702cca-b065-49e3-88a3-4499e032b2a6
+•
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿ½¯°J$b556b893-0419-4389-a748-c9b2b2bd04bb
+•
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÛÇ´J$4c368776-3825-4b4e-bee6-7e8b900f6395
+Q
+java:S1700"Rename field "client"(Ëş‹²J$bf8eda9a-c372-4c90-979f-819bc2696bf6
+”	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Âí§uJ$d279a121-2baa-4a7c-8bb9-cf99dc48a328
+š	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¯¦ÿ¾üÿÿÿÿJ$3027d22f-24d8-418c-80dd-aa6a67861d65
+¡
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(›ä¹ºJ$ffb68b7e-cf05-4822-92e2-96a02a6ccc92
+¡
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÿ½¯°J$32181c39-136b-4b38-a92e-afdf25542a9e
+¡
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(·ÛÇ´J$9b3e00f5-6b51-46de-86bc-9ccf1272ed39
+¦
+java:S1149B"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ªÔÉêùÿÿÿÿJ$04b7504f-ce9a-494a-9c94-c89c0ac8a18c
+
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Çµí‘J$e6247258-5fa2-46c8-b28a-913c4f289ece
+f	java:S106"+Replace this use of System.out by a logger.(Û£éáJ$ff033d31-12ec-4ec8-8fb4-fdc42eb97c23
+k	java:S106l"+Replace this use of System.out by a logger.(îÑ¡ÿÿÿÿÿJ$43007e6a-e832-4d5c-91ca-0721c1ad1649

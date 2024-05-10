@@ -1,0 +1,61 @@
+
+	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8é¥¤ÿõ1J$92ebb5e0-e26c-4bc1-b01d-9e8d43d8dd44
+•
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(›ä¹ºJ$bc65559b-eb47-406a-9456-22869a404daf
+•
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿ½¯°J$b2b9e37f-c10e-4ed4-84bc-8adf77ad7ea4
+•
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(…¿ÙJ$40a22dbe-1c2c-46fd-be99-7308b38e044b
+œ
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÛÇ´8ì¥¤ÿõ1J$e980a55a-68ca-4a67-9ada-d7b07d5be7b9
+
+java:S2293–"YReplace the type specification in this constructor call with the diamond operator ("<>").(š‚¾™8ÕœÂ€ö1J$f9aa257e-78a1-46fc-bb47-5c59c63ff6b0
+_
+java:S1643w"Use a StringBuilder instead.(Ü€°£8×œÂ€ö1J$345cbe41-b7fa-4aea-8b35-aee7bc1561f3
+^
+java:S1643{"Use a StringBuilder instead.(¼Î½R8×œÂ€ö1J$2349f248-6390-448e-99b5-b0533604e6b0
+`
+java:S1643ƒ"Use a StringBuilder instead.(¸«Òã8×œÂ€ö1J$665802f3-c0d7-4735-83d3-99d0afd14ae9
+_
+java:S1643‡"Use a StringBuilder instead.(¼Î½R8×œÂ€ö1J$e2278d19-b067-4c04-bf64-e9dc2fd66917
+Q
+java:S1700"Rename field "server"(îè®ÏJ$ad0262fa-722f-4ab1-8348-991119c3ee13
+•	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(áŠ°ÔJ$1adbe084-a26f-48d9-939a-b52be8d71b9e
+š	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×Ÿš‘üÿÿÿÿJ$cd361b4f-5da3-4ef7-984f-e909cf77a9ff
+œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×ÿÁ8Ó¦¤ÿõ1J$8baf6c6a-e7ba-4535-8c8c-9a99cb0d1150
+‘
+java:S1450"URemove the "server" field and declare it as a local variable in the relevant methods.(îè®ÏJ$c1d97231-706e-4fb9-9472-3aa58f727d90
+¡
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(›ä¹ºJ$5665b5b6-7897-4eb4-9555-e657f89942fe
+¡
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÿ½¯°J$de0336ce-6d17-45f3-9b6b-ba79475f6178
+¡
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(…¿ÙJ$ce01b4ad-9d47-4a73-bcac-6452477df1d3
+¨
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(·ÛÇ´8×¦¤ÿõ1J$f623c20e-79f9-4f89-b4fc-de5791337f3e
+¦
+java:S1149""eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÔÙÖåúÿÿÿÿJ$ec33ec37-c34e-4d87-8a6b-2f02387c490c
+¨
+java:S1149&"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(øŸß»8×¦¤ÿõ1J$99e0d41d-4628-4cb7-9b20-80b74b4bb68c
+©
+java:S1149–"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(š‚¾™8®Â€ö1J$cf5351d5-0281-4348-a23b-9ee45dd6d6ae
+©
+java:S1149É"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(°ŠÔ¿8®Â€ö1J$7983d8d1-2317-432c-b3f0-e30e87519863
+_
+java:S1116"Remove this empty statement.(…¿Ù8Û¦¤ÿõ1J$3f009343-8f68-42a8-9cd4-1546260b113b
+k	java:S106,"+Replace this use of System.out by a logger.(Ê­ÀòûÿÿÿÿJ$15b31a03-b02e-4873-8ae0-bbac12677c5b
+e	java:S1067"+Replace this use of System.out by a logger.(Ÿ‹JJ$59a655ab-3cea-48f5-9b4e-2ad7fd185a0f
+g
+java:S2119"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8¼Â€ö1J$5a1fdf11-4a5a-4014-9f29-2229830fd38a
+n	java:S106¡"+Replace this use of System.out by a logger.(Á¿ó8ì¦¤ÿõ1J$3d1fd2c5-4ac3-4427-a502-cddfe5040a74
+s	java:S106¢"+Replace this use of System.out by a logger.(ÿíãğÿÿÿÿÿ8ğ¦¤ÿõ1J$ffa6a39f-f6d4-45fb-ab1a-c968e35d2159
+s	java:S106¼"+Replace this use of System.out by a logger.(¼Ó°ªıÿÿÿÿ8…‡ €ö1J$ed4af6a2-a4b4-44ae-8d98-b32f35183fd7
+s	java:S106½"+Replace this use of System.out by a logger.(¥‡ÈÅúÿÿÿÿ8ÀÂ€ö1J$8471b653-b50b-49e7-b0e3-ab36c872411b
+n	java:S106¾"+Replace this use of System.out by a logger.(Ñõ¬–8ÁÂ€ö1J$36d6afdb-3fd9-408c-8f58-5ab5f30a409d
+‘
+java:S5361Í"HReplace this call to "replaceAll()" by a call to the "replace()" method.(®İİÛşÿÿÿÿ8ÂÂ€ö1J$cc7f3fc2-7f00-4061-9378-c17a903985ec
+˜
+java:S1450†"TRemove the "entry" field and declare it as a local variable in the relevant methods.(‹»éî8ÇÂ€ö1J$d85bc4fe-dfef-44a2-928a-a06822c6c392
+~
+java:S1161Œ":Add the "@Override" annotation above this method signature(“–ış8ÈÂ€ö1J$da0df108-8c52-4ee7-bcb4-15e3e3a69fe1
+s	java:S106’"+Replace this use of System.out by a logger.(÷ÉÌèÿÿÿÿÿ8ÉÂ€ö1J$0ef62a25-e6ef-4abc-83f3-380ed21daa8c
