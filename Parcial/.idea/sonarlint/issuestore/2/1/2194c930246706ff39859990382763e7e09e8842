@@ -1,61 +1,61 @@
 
-	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8é¥¤ÿõ1J$be3cede2-6af8-45c2-ae5f-9ca6b0606444
+	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8é¥¤ÿõ1J$edfc0bc8-99ac-47f7-8651-31d3f78b33f1
 •
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(›ä¹ºJ$98ede5a8-af63-4b48-83fd-e063952e2026
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(›ä¹ºJ$21653809-3a16-4a78-a754-0aaaf9621b3a
 •
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿ½¯°J$7302c121-b696-4e30-b4f7-727ebc89c571
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿ½¯°J$eda97b0e-49e0-48c0-80d8-5907ad24d7f0
 •
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(…¿ÙJ$7ec98c68-14aa-45e0-ad30-959186a26a32
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(…¿ÙJ$c160e0cf-0f2d-457a-ae5f-9b4e00fe8e25
 œ
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÛÇ´8ì¥¤ÿõ1J$27c0129c-6065-4b1f-a32a-ccf835609500
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÛÇ´8ì¥¤ÿõ1J$02585587-680f-4ef0-a528-92921d8cfbac
 
-java:S2293›"YReplace the type specification in this constructor call with the diamond operator ("<>").(š‚¾™8ÕœÂ€ö1J$c7da3822-1c0f-4011-847e-21f765fabdee
+java:S2293›"YReplace the type specification in this constructor call with the diamond operator ("<>").(š‚¾™8ÕœÂ€ö1J$aac53d7d-92b0-4e60-a13d-bfa9abc73fe5
 _
-java:S1643w"Use a StringBuilder instead.(Ü€°£8×œÂ€ö1J$ac7f3bdb-0368-474b-92e9-76be046e14c8
+java:S1643w"Use a StringBuilder instead.(Ü€°£8×œÂ€ö1J$aa744546-56c8-463f-be8a-7757e29d535b
 ^
-java:S1643{"Use a StringBuilder instead.(¼Î½R8×œÂ€ö1J$1f9e415a-1fd5-4ab7-adc5-79a47beb9d3c
+java:S1643{"Use a StringBuilder instead.(¼Î½R8×œÂ€ö1J$69864cb2-016d-4a2b-bd61-3f79d496d923
 `
-java:S1643ƒ"Use a StringBuilder instead.(¸«Òã8×œÂ€ö1J$cc0e8765-be2c-4556-8727-92d8a91a608f
+java:S1643ƒ"Use a StringBuilder instead.(¸«Òã8×œÂ€ö1J$15cabd6f-5196-4124-8a92-e7142fd09bbf
 _
-java:S1643‡"Use a StringBuilder instead.(¼Î½R8×œÂ€ö1J$68c9e167-c56d-4241-80b9-8eb761d2e682
+java:S1643‡"Use a StringBuilder instead.(¼Î½R8×œÂ€ö1J$dec083f5-15eb-462d-a94c-392ecdf5b734
 Q
-java:S1700"Rename field "server"(îè®ÏJ$98f1a01b-592a-495f-a100-48842670eff3
-•	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(áŠ°ÔJ$68d1c74c-2ad2-4f3c-84f6-825364788a1f
-š	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×Ÿš‘üÿÿÿÿJ$395d308f-bada-4b39-bab4-1523630a989c
-œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×ÿÁ8Ó¦¤ÿõ1J$759d0908-eb8b-441b-aa3e-71db267b1b48
+java:S1700"Rename field "server"(îè®ÏJ$a20090dd-0ebe-4c1a-9c65-750212c07611
+•	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(áŠ°ÔJ$d37d1402-a787-4091-8877-233279ad610c
+š	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×Ÿš‘üÿÿÿÿJ$9d13bda3-a5e5-4ec6-b429-9ce7f5e27c9a
+œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×ÿÁ8Ó¦¤ÿõ1J$bc70ce28-10ab-47ed-a1a2-915b2be6c5cd
 ‘
-java:S1450"URemove the "server" field and declare it as a local variable in the relevant methods.(îè®ÏJ$3fe07f86-3b9d-415c-82af-9e15fc53a1ed
+java:S1450"URemove the "server" field and declare it as a local variable in the relevant methods.(îè®ÏJ$2b42bb5f-a8e8-4802-b795-a76e62c5635c
 ¡
-java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(›ä¹ºJ$45e35b8e-818d-47f6-be77-25ecf22c854e
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(›ä¹ºJ$6b681a5a-158c-42f3-b078-a38b7dad396d
 ¡
-java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÿ½¯°J$459f7d86-7de8-4f73-9b76-c42809e6341d
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÿ½¯°J$f64469a9-a121-4a60-a4d3-f810e0f2aa5e
 ¡
-java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(…¿ÙJ$3faa9672-e900-458a-8fd3-fe35a2a0a7c3
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(…¿ÙJ$754b4411-6986-40ec-9244-a7d829d9aee3
 ¨
-java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(·ÛÇ´8×¦¤ÿõ1J$46ecf526-c62c-4bfc-b82a-1f33d2efbfe9
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(·ÛÇ´8×¦¤ÿõ1J$1bf2ab4c-bf3b-47ee-b63c-b7613af944f0
 ¦
-java:S1149""eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÔÙÖåúÿÿÿÿJ$893cabb5-6c9d-4e50-9528-551544505ec0
+java:S1149""eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÔÙÖåúÿÿÿÿJ$7bf32e9b-a413-4890-b201-7b6a746bce62
 ¨
-java:S1149&"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(øŸß»8×¦¤ÿõ1J$358e0a4d-283d-43dc-9655-1ae7d9338aaa
+java:S1149&"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(øŸß»8×¦¤ÿõ1J$a11d093f-47d2-4e39-80e6-e4cf93679555
 ©
-java:S1149›"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(š‚¾™8®Â€ö1J$3e19eda4-9e78-4e4e-b5e4-3626eb046d9c
+java:S1149›"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(š‚¾™8®Â€ö1J$7a897301-4250-4a51-b01d-34ddfb1e4cf2
 ©
-java:S1149Ô"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(°ŠÔ¿8®Â€ö1J$19af55f0-16ca-4880-a58b-d6f301d39594
+java:S1149í"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(°ŠÔ¿8Ò¥Æ‡ö1J$b0368065-d782-4c0e-81ae-94e6a88d882f
 _
-java:S1116"Remove this empty statement.(…¿Ù8Û¦¤ÿõ1J$f97307a8-6b53-493a-a4f0-32884fc3b4f3
-k	java:S106,"+Replace this use of System.out by a logger.(Ê­ÀòûÿÿÿÿJ$722b1954-a254-47ce-af3e-844ef5b92dc5
-e	java:S1067"+Replace this use of System.out by a logger.(Ÿ‹JJ$790294aa-7f2b-4011-bb33-5b3a2cd01e35
+java:S1116"Remove this empty statement.(…¿Ù8Û¦¤ÿõ1J$1e4de6ae-2b94-42e7-a8b9-3310ba033394
+k	java:S106,"+Replace this use of System.out by a logger.(Ê­ÀòûÿÿÿÿJ$ea7fc65b-3706-4a39-9ca4-3655206d832b
+e	java:S1067"+Replace this use of System.out by a logger.(Ÿ‹JJ$1eaec3b4-09e8-4ca6-8e2f-24593b6f0596
 g
-java:S2119‘"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8¼Â€ö1J$684dfc68-8b76-4832-a4f8-035aee7f561c
-n	java:S106¬"+Replace this use of System.out by a logger.(Á¿ó8ì¦¤ÿõ1J$2de890c9-33be-4345-afab-7448297ea06e
-s	java:S106­"+Replace this use of System.out by a logger.(ÿíãğÿÿÿÿÿ8ğ¦¤ÿõ1J$f070484a-7593-48e3-899a-cf19982d7107
-s	java:S106Ç"+Replace this use of System.out by a logger.(¼Ó°ªıÿÿÿÿ8…‡ €ö1J$5e7cc833-2c01-412f-af32-40aa92b2ac0b
-s	java:S106È"+Replace this use of System.out by a logger.(¥‡ÈÅúÿÿÿÿ8ÀÂ€ö1J$1b4a7ec4-02f6-4fb6-b4a9-a441aeb1e9a1
-n	java:S106É"+Replace this use of System.out by a logger.(Ñõ¬–8ÁÂ€ö1J$de29c0a6-8d80-453b-97ba-0c39a82b9374
+java:S2119‘"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8¼Â€ö1J$db2767f2-908f-4e23-856b-4a768faf8a2d
+n	java:S106¬"+Replace this use of System.out by a logger.(Á¿ó8ì¦¤ÿõ1J$29576cde-0a60-4148-9dac-2c88fecfd947
+s	java:S106­"+Replace this use of System.out by a logger.(ÿíãğÿÿÿÿÿ8ğ¦¤ÿõ1J$52107b5a-5afc-4bd6-86ac-fabb882a8eaf
+s	java:S106Ù"+Replace this use of System.out by a logger.(¼Ó°ªıÿÿÿÿ8…‡ €ö1J$3d2e7c9e-592c-4cd9-a5a2-aea8e1862c8f
+s	java:S106Ú"+Replace this use of System.out by a logger.(¥‡ÈÅúÿÿÿÿ8ÀÂ€ö1J$e09cd2cb-e9a2-477c-b59d-78d3132bc49f
+n	java:S106Û"+Replace this use of System.out by a logger.(Ñõ¬–8ä¥Æ‡ö1J$0fd42c89-0d17-4a1e-aa56-8a3551507f37
 ‘
-java:S5361Ø"HReplace this call to "replaceAll()" by a call to the "replace()" method.(®İİÛşÿÿÿÿ8ÂÂ€ö1J$5b3f1b1d-5a9b-4903-8750-3d9e6e627e80
-˜
-java:S1450‘"TRemove the "entry" field and declare it as a local variable in the relevant methods.(‹»éî8ÇÂ€ö1J$dc951b22-941a-401f-af54-da5fb2090444
+java:S5361õ"HReplace this call to "replaceAll()" by a call to the "replace()" method.(®İİÛşÿÿÿÿ8æ¥Æ‡ö1J$804c36ed-2179-4ef3-aacb-95852ecb2a63
+
+java:S1450Ğ"TRemove the "entry" field and declare it as a local variable in the relevant methods.(ùÀÄ‹úÿÿÿÿ8é¥Æ‡ö1J$bf4c4c81-2bde-45fd-9895-6bc2e76a4be7
 ~
-java:S1161—":Add the "@Override" annotation above this method signature(“–ış8ÈÂ€ö1J$96d882c8-8b39-4997-8532-eb6926cf0a83
-s	java:S106"+Replace this use of System.out by a logger.(÷ÉÌèÿÿÿÿÿ8ÉÂ€ö1J$8a753e4c-a599-43ab-ae96-3cf941233f59
+java:S1161Ø":Add the "@Override" annotation above this method signature(“–ış8ë¥Æ‡ö1J$8b5d3e04-5f1d-43bd-95df-fb2a32fef33e
+s	java:S106ß"+Replace this use of System.out by a logger.(÷ÉÌèÿÿÿÿÿ8ë¥Æ‡ö1J$9f05b91d-8a10-4374-8a93-d84895cdbe27

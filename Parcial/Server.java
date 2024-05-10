@@ -172,93 +172,152 @@ public class Server {//declaramos la clase server
         System.out.println("Number of points: " + numberPoints);
         System.out.println("Number of centroids: " + numberCentroids);
     }
+    /*
+    Declaramos el metodo para implementar el algoritmo del metodo burbuja para ordenar
+    2 vectores (receiveIndex y receiveData) simultáneamente según los valores en receiveIndex
+     */
     public static void sortData(){
-        int n = receiveIndex.size();
+        int n = receiveIndex.size();//n longitud del vector 'receiveIndex'
+        //itera solbre elementos del vector
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
+                //si el elemento actual es mayor que el siguiente
                 if (receiveIndex.get(j) > receiveIndex.get(j + 1)) {
+                    //se realiza un intercambio entre los elementos en receiveIndex y receiveData
                     int temp = receiveIndex.get(j);
                     receiveIndex.set(j, receiveIndex.get(j + 1));
                     receiveIndex.set(j + 1, temp);
                     String tempString = receiveData.get(j);
                     receiveData.set(j, receiveData.get(j + 1));
                     receiveData.set(j + 1, tempString);
+                    //despues del intercambio los elementos estan ordenados en orden ascendente
                 }
             }
         }
-        parseCluster();
+        parseCluster();//los elementos estan listos para el siguiente paso
     }
+    /*
+    Declaramos el metodo que se encarga de procesar los datos de los clusteres despues de que
+    se hayan sido ordenados y almacenados en los vectores oldCluster y cluster.
+     */
     private static void parseCluster(){
+        //se verifica si el vector oldCluster esta vacio
         if(oldCluster.isEmpty()){
+            //si esta vacio se llama al metodo para analizar los datos de los cluteres y almacenarlos en oldCluster
             parseClusterData(oldCluster);
-        }else{
+        }else{//si no esta vacio se procesan los datos de los cluteres anteriores almacenados en cluster
             parseClusterData(cluster);
+            //si oldCluster es igual a cluster significa que no hubo cambios en la asignacion de los puntos
+            // a los clusteres desde la ultima iteracion del algoritmo
             if(oldCluster.equals(cluster)){
+                //se calcula el tiempo de ejecucion del algoritmo
                 endTime = System.currentTimeMillis();
                 totalTime = endTime - startTime;
+                //se imprime en la consola junto como el # de puntos
                 System.out.println("Total time: " + totalTime + "ms");
                 System.out.println(totalTime + " , " + points.size());
                 System.out.println("DONE");
+                //se finaliza el programa
                 System.exit(0);
-            }else{
+            }else{//si oldCluster no es igual a cluster significa que hubo cambios en la asignacion de los
+                // puntos a los clusteres
+                //se actualiza oldCluster con los datos del cluster
                 oldCluster.clear();
                 oldCluster.addAll(cluster);
-                cluster.clear();
+                cluster.clear();//se limpia para almacenar nuevos datos
             }
         }
+        //se continua con el calculo de nuevos centroides
         calculateNewCentroids();
     }
-
+    /*
+    Declaramos el metodo que se encarga de procesar los datos de los clusteres
+    recibidos desde multiples clientes y almacenados en el vector 'receiveData'
+     */
     private static void parseClusterData(Vector<Integer> cluster) {
+        //se itera sobre los clientes almacenados en clients
         for(int i = 0; i < clients.size(); i++){
+            //para cada cliente se obtine la cadena de datos de clusteres correspondientes desde receiveData
             String data = receiveData.get(i);
+            //se realiza un procesamiento de la cadena de datos para eliminar los '[]' que rodean a la cadena,
+            //eliminar los espacios en blanco y dividir la cadena utilizando ';'como delimitador
             data = data.substring(1, data.length() - 1);
             data = data.replaceAll(" ", "");
+            //la cadena se divide en un array de cadenas 'dataString' donde cada elemento representa
+            //un valor de un punto asignado a un cluster.
             String[] dataString = data.split(",");
+            // se itera sobre cada elemento
             for (String s : dataString) {
+                //y se convierte en un entero, el entero resultante se agrega al vector 'cluster'
+                // que almacena la asignacion de puntos a clusteres
                 cluster.add(Integer.parseInt(s));
             }
         }
     }
-
+    /*
+    Declaramos el metodo que se encarga de calcular los nuevos centroides para los clusteres basados
+    en la asignacion actualizada de los puntos a los clusteres y luego se envia estos nuevos a los
+    clientes para su procesamiento.
+     */
     private static void calculateNewCentroids(){
-        float[] sumPointsX = new float[centroids.size()];
-        float[] sumPointsY = new float[centroids.size()];
-        int[] count = new int[centroids.size()];
-
+        //se inicializan 3 arreglos
+        float[] sumPointsX = new float[centroids.size()];//arreglo para almacenar la suma de coordenas x de los puntos asignados a cada centroide
+        float[] sumPointsY = new float[centroids.size()];//arreglo para almacenar la suma de coordenas y de los puntos asignados a cada centroide
+        int[] count = new int[centroids.size()];//arreglo para almacenar el numero de puntos asignados a cada centroide
+        //se itera sobre todos los puntos almacenados en 'points'
         for (int i = 0; i < numberPoints; i++) {
+            //para cada punto se obtiene su asignacion de cluster
             Point point = points.get(i);
+            //desde 'oldCluster'
             int cluster = oldCluster.get(i);
-
+            //iteramos sobre todos los centroides
             for (int c = 1; c < centroids.size()+1; c++) {
+                //si la asignacion de cluster del punto coindice con el indice del centroide actual
                 if (cluster == c) {
+                    //se actualizan las sumas de coordenadas 'x'e'y' en
                     sumPointsX[c-1] += point.getX();
                     sumPointsY[c-1] += point.getY();
+                    //se incrementa el contador de puntos asignados a ese centroide.
                     count[c-1] += 1;
                 }
             }
         }
-
+        //iteramos sobre los centroides
         for (int c = 0; c < centroids.size(); c++) {
+            //calculamos las nuevas coordenas 'x','y' para cada centroide dividiendo las sumas
+            //acumuladas por el numero de puntos asignados a cada centroide
             centroids.get(c).update(sumPointsX[c] / count[c], sumPointsY[c] / count[c]);
         }
+        //final mente se llama al metodo para enviar los nuevos centroides a los clientes conectados.
         sendNewCentroids();
     }
-
+    /*
+    Declaramos el metodo que se encarga de enviar los nuevos centroides calculados a todos los
+    clientes conectados
+     */
     private static void sendNewCentroids(){
+        //limpiamos las listas de recepcion
         receiveIndex.clear();
         receiveData.clear();
+        //se itera sobre cada cliente conectado al servidor
         for (Socket client : clients) {
             try {
+                //para cada cliente se construye un mensaje que contiene los datos de los nuevos centroides
                 StringBuilder message = new StringBuilder();
+                //se itera el vector 'centroids'
                 for(int i = 0; i < centroids.size(); i++){
+                    //se agrega cada centroide al mensaje
                     message.append(centroids.get(i));
                     if(i != centroids.size() - 1){
+                        //separamos los centroides con ';'
                         message.append(";");
                     }
                 }
+                //se agrega un salto de linea al final del mensaje para indicar el final de los datos
                 message.append("\n");
+                //se obtiene el flujo de salida del cliente y se escribe el mensaje convertido a bytes
                 client.getOutputStream().write(message.toString().getBytes());
+                //envia inmediatamente los mensajes
                 client.getOutputStream().flush();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -267,30 +326,43 @@ public class Server {//declaramos la clase server
     }
 
 }
-
+/*
+Definimos la clase que extiende 'Thread' la cual se utiliza para manejar la comunicacion
+con un cliente especifico conectado al servidor
+ */
 class ClientHandler extends Thread{
-    private final Socket client;
-    private InputStream entry;
-    private int index;
+    //declaramos variables
+    private final Socket client;//socket del cliente con el que se estable la conexion
+    private InputStream entry;//flujo de entrada desde el cliente
+    private int index;//inidice del cliente dentro de la lista de clientes en el servidor
+    //contructor que inicializa el 'ClientHandler' con el socket del cliente y su indice
     public ClientHandler(Socket client, int index){
         this.client = client;
         this.index = index;
     }
+    //declaramos el siguiente metodo que es invocado cuando se inicia un hilo
     public void run(){
         try {
-            entry = client.getInputStream();
-            Scanner scanner = new Scanner(entry);
+            entry = client.getInputStream();//se obtiene el flujo de entrada del socket del cliente
+            Scanner scanner = new Scanner(entry);//Scanner para leer datos del flujo de entrada
             while (true) {
+                //Verifica si hay una linea de datos disponible para ser leida del cliente
                 if (scanner.hasNextLine()) {
                     System.out.println("Received data from client " + index);
+                    //si hay datos disponibles se lee la linea de datos, que representa el mensaje enviado por el cliente
                     String message = scanner.nextLine();
+                    //los datos recibidos message y el indice del cliente 'index' se agregan
+                    //de forma sincronizada a las listas para asegurar que los recuros compartidos se
+                    //manejes de manera segura entre varios hilos.
                     synchronized (Server.receiveIndex){
                         Server.receiveIndex.add(index);
                     }
                     synchronized (Server.receiveData){
                         Server.receiveData.add(message);
                     }
+                    //verifica si se han recibido datos de todos los clientes
                     if (Server.receiveIndex.size() == Server.clients.size()) {
+                        //si es asi llama al metodo para procesar los datos recibidos 
                         Server.sortData();
                     }
                 }
