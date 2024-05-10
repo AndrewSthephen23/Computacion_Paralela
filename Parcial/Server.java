@@ -141,23 +141,34 @@ public class Server {//declaramos la clase server
     //Declaramos el metodo que se encarga de inicializar y preparar los datos necesarios para
     // ejecutar el algoritmo de agrupamiento implementado en el servidor.
     static void prepareData(){
+        //GENERACION DE PUNTOS ALEATORIOS
         Random rand = new Random();
         for(int i = 0; i < numberPoints; i++){
+            //generamos coordenadas 'x' y 'y' entre 0 y 99
             int x = rand.nextInt(100);
             int y = rand.nextInt(100);
+            //creamos un nuevo objeto point con las coordenadas generadas y se agrega a lista
             points.add(new Point(x,y));
         }
+        //SELECCION ALEATORIA DE CENTROIDES
+        //se crea un vector para mantener un registro de los indices de los puntos que se seleccionaron como centroides
         Vector<Integer> used = new Vector<Integer>();
+        //se itera la cantidad de centroides para seleccionar centroides aleatorios
         for(int i = 0; i < numberCentroids; i++){
-            int n = rand.nextInt(numberPoints);
+            int n = rand.nextInt(numberPoints);//se genera un indice aleatorio entre 0 y numberPoints-1
+            //se asegura que el indice 'n' no haya sido utilizado antes como un centroide
+            // verificando si esta contenido en el vector 'used'.
             while(used.contains(n)){
                 n = rand.nextInt(numberPoints);
             }
-            used.add(n);
+            used.add(n);//si se encuentra un indice no autorizado, se agrega a used para evitar que se seleccione nuevamente.
+            //se obtinen las coordenas del punto en el indice 'n'
             float x = points.get(n).getX();
             float y = points.get(n).getY();
+            //se crea un nuevo objeto Point y se agrega a la lista centroids
             centroids.add(new Point(x,y));
         }
+        //Se imprime en consola la cantidad de puntos generados y la cantidad de centroides seleccionados
         System.out.println("Number of points: " + numberPoints);
         System.out.println("Number of centroids: " + numberCentroids);
     }
