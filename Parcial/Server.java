@@ -362,7 +362,7 @@ class ClientHandler extends Thread{
                     }
                     //verifica si se han recibido datos de todos los clientes
                     if (Server.receiveIndex.size() == Server.clients.size()) {
-                        //si es asi llama al metodo para procesar los datos recibidos 
+                        //si es asi llama al metodo para procesar los datos recibidos
                         Server.sortData();
                     }
                 }

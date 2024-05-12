@@ -1,0 +1,25 @@
+
+`	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(›ä¹º
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿ½¯°
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÛÇ´
+0
+java:S1700	"Rename field "client"(µş€ˆıÿÿÿÿ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(áŠ°Ô
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(»®ŞŞúÿÿÿÿ
+{
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(›ä¹º
+{
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÿ½¯°
+{
+java:S1149"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(·ÛÇ´
+€
+java:S11495"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ªÔÉêùÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Çµí‘
+@	java:S106"+Replace this use of System.out by a logger.(º¾ŠÎ
+@	java:S106S"+Replace this use of System.out by a logger.(Ğ•
