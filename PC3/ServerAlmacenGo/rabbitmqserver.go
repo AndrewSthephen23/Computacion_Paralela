@@ -1,19 +1,19 @@
 package main
 
 import (
-	"context"
-	"database/sql"
-	"fmt"
-	"log"
-	"strconv"
-	"strings"
-	"time"
+	"context"  // Importa el paquete context para manejar contextos con límites de tiempo.
+	"database/sql"  // Importa el paquete database/sql para trabajar con bases de datos SQL.
+	"fmt"  // Importa el paquete fmt para formatear cadenas de texto.
+	"log"  // Importa el paquete log para registrar mensajes de log.
+	"strconv"  // Importa el paquete strconv para convertir entre cadenas y otros tipos de datos.
+	"strings"  // Importa el paquete strings para manipular cadenas de texto.
+	"time"  // Importa el paquete time para trabajar con el tiempo.
 
-	_ "github.com/go-sql-driver/mysql"
-	amqp "github.com/rabbitmq/amqp091-go"
+	_ "github.com/go-sql-driver/mysql"  // Importa el driver MySQL.
+	amqp "github.com/rabbitmq/amqp091-go"  // Importa el paquete RabbitMQ.
 )
 
-// make a product struct
+// Estructura que representa un producto.
 type Product struct {
 	ID        int
 	Name      string
@@ -23,15 +23,17 @@ type Product struct {
 	CostTotal float64
 }
 
+// Convierte una lista de Productos en una cadena de texto.
 func productsToString(products []Product) string {
 	var msg string
 	for i := 0; i < len(products); i++ {
 		msg += strconv.Itoa(products[i].ID) + "," + products[i].Name + "," + products[i].Category + "," + strconv.Itoa(products[i].Amount) + "," + strconv.FormatFloat(products[i].Cost, 'f', -1, 64) + "," + strconv.FormatFloat(products[i].CostTotal, 'f', -1, 64) + ";"
 	}
-	msg = msg[:len(msg)-1]
+	msg = msg[:len(msg)-1] // Elimina el ; del final
 	return msg
 }
 
+// Envia los productos de la base de datos como una cadena de texto.
 func sendProducts(db *sql.DB) string {
 	consultaF := "SELECT ID_PROD, NAME_PROD, COST FROM products"
 	rows, err := db.Query(consultaF)
@@ -59,6 +61,7 @@ func sendProducts(db *sql.DB) string {
 	return msg
 }
 
+// verifica la existencia de una cantidad especifica de un producto
 func checkExistence(db *sql.DB, id int, amount int) bool {
 	consultaF := "SELECT AMOUNT FROM products WHERE ID_PROD = ?"
 	rows, err := db.Query(consultaF, id)
@@ -81,6 +84,7 @@ func checkExistence(db *sql.DB, id int, amount int) bool {
 	return amountDB >= amount
 }
 
+// Verifica la existencia de todas las cantidades de productos especificadas.
 func checkAllExistences(db *sql.DB, values []string) bool {
 	counter := 0
 	for i := 0; i < len(values); i++ {
@@ -94,6 +98,7 @@ func checkAllExistences(db *sql.DB, values []string) bool {
 	return counter == len(values)
 }
 
+// Actualiza las cantidades de los productos en la base de datos.
 func updateProducts(values []string, db *sql.DB) {
 	for i := 0; i < len(values); i++ {
 		prod := strings.Split(values[i], ",")
@@ -107,6 +112,7 @@ func updateProducts(values []string, db *sql.DB) {
 	}
 }
 
+// Obtiene los datos de un producto a partir de su ID y la cantidad.
 func getDataFromId(db *sql.DB, id int, amount int) Product {
 	consultaF := "SELECT * FROM products WHERE ID_PROD = ?"
 	rows, err := db.Query(consultaF, id)
@@ -130,6 +136,7 @@ func getDataFromId(db *sql.DB, id int, amount int) Product {
 	return product
 }
 
+// Envia los datos de la ventana a un servicio Java a traves de RabbitMQ.
 func sendToJava(db *sql.DB, name string, ruc string, products string, ch *amqp.Channel) string {
 	var msg string
 	msg = name + ";" + ruc
@@ -158,18 +165,22 @@ func sendToJava(db *sql.DB, name string, ruc string, products string, ch *amqp.C
 	return "Venta Realizada"
 }
 
+// Maneja los errores registrandolos y deteniendo la ejecución si es necesario.
 func failOnError(err error, msg string) {
 	if err != nil {
 		log.Panicf("%s: %s", msg, err)
 	}
 }
 
+// Convierte un array de strings en una cadena de texto, separada por comas.
 func arrayToString(arr []string) string {
 	str := strings.Trim(strings.Join(strings.Fields(fmt.Sprint(arr)), ", "), "[]")
 	return str
 }
 
+// Funcion principal
 func main() {
+	// Conexion a la base de datos MySQL.
 	db, err := sql.Open("mysql", "root:2206@tcp(127.0.0.1:3306)/storageDB")
 	defer db.Close()
 
@@ -179,14 +190,17 @@ func main() {
 		log.Printf("Conectado a la bd")
 	}
 
+	// Conexión a RabbitMQ
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/venta_host")
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
-
+	
+	// Canal de comunicaciones con RabbitMQ.
 	ch, err := conn.Channel()
 	failOnError(err, "Failed to open the client channel")
 	defer ch.Close()
 
+	// Declaración de la cola para recibir solicitudes.
 	q, err := ch.QueueDeclare(
 		"go-python-queue",
 		false,
@@ -203,6 +217,7 @@ func main() {
 	)
 	failOnError(err, "Failed to set the client QoS")
 
+	// Registro del consumidor para recibir mensajes de la cola.
 	msgs, err := ch.Consume(
 		q.Name,
 		"",
@@ -214,12 +229,15 @@ func main() {
 	)
 	failOnError(err, "Failed to register the client consumer")
 
+	// Canal adicional para comunicarse con el servicio Java.
 	ch_java, err := conn.Channel()
 	failOnError(err, "Failed to open the java channel")
 	defer ch_java.Close()
 
+	// Canal de comunicacion para mantener el programa en ejecucion.
 	var forever chan struct{}
 	go func() {
+		// Contexto con tiempo de espera para las solicitudes
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		for d := range msgs {
