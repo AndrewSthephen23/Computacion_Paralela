@@ -1,0 +1,25 @@
+
+q
+java:S1104"TMake id_sales a static final constant or non-public and provide accessors if needed.(Ë½„…8âÛ£üü1
+p
+java:S1104"SMake id_ruta a static final constant or non-public and provide accessors if needed.(Œåëğ8äÛ£üü1
+t
+java:S1104"RMake nombre a static final constant or non-public and provide accessors if needed.(›‚àõşÿÿÿÿ8åÛ£üü1
+r
+java:S1104"UMake name_prod a static final constant or non-public and provide accessors if needed.(ÈÏš±8åÛ£üü1
+~
+java:S1104"\Make descripcion_ruta a static final constant or non-public and provide accessors if needed.( šˆöşÿÿÿÿ8åÛ£üü1
+u
+java:S1104	"XMake lugar_compra a static final constant or non-public and provide accessors if needed.(Ô¦ù™8åÛ£üü1
+p
+java:S1104
+"SMake asiento a static final constant or non-public and provide accessors if needed.(ğôûâ8æÛ£üü1
+m
+java:S1104"PMake cost a static final constant or non-public and provide accessors if needed.(ìœê8æÛ£üü1
+m
+java:S1104"QMake total a static final constant or non-public and provide accessors if needed.(üE8æÛ£üü1
+o	java:S116"SRename this field "id_sales" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë½„…8íÛ£üü1
+n	java:S116"RRename this field "id_ruta" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œåëğ8íÛ£üü1
+p	java:S116"TRename this field "name_prod" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÏš±8íÛ£üü1
+|	java:S116"[Rename this field "descripcion_ruta" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( šˆöşÿÿÿÿ8îÛ£üü1
+s	java:S116	"WRename this field "lugar_compra" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô¦ù™8îÛ£üü1
