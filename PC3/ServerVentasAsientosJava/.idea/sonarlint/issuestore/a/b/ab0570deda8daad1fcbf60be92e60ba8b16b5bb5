@@ -1,0 +1,12 @@
+
+	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä­Íıü1J$68e8abc9-7372-40f5-8986-acae40cba9b8
+
+java:S2095 "EUse try-with-resources or close this "Channel" in a "finally" clause.(‡î‰´ûÿÿÿÿ8ü­Íıü1J$fcf956a5-4fd7-48f6-aecb-450b77d9c43c
+‹
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(“…§Ú8ı­Íıü1J$4f9d1203-2a27-48d7-8351-ba03490d7339
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¨¤¦ò8‘®Íıü1J$6cbda245-3309-4167-bab3-a45a8e103085
+l	java:S106"+Replace this use of System.out by a logger.(’š8®Íıü1J$6b9e0e95-4344-477c-9d87-38abb65da912
+|
+java:S4719("9Replace charset name argument with StandardCharsets.UTF_8(ò”®ª8É®Íıü1J$0f955da9-2e2d-402d-af53-1a15211440a5
+r	java:S106)"+Replace this use of System.out by a logger.(Á£”¸şÿÿÿÿ8Ê®Íıü1J$66e8ba35-dca3-4a82-ba9d-2a6849a8ea38

@@ -1,0 +1,14 @@
+
+—
+java:S2095""OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8Ïìıü1J$47c82740-ede7-43e0-abaa-4c1f08607fcb
+u
+java:S4925"-Remove this "Class.forName()", it is useless.(õ†¨Äùÿÿÿÿ8´Ïìıü1J$363bb5d0-a4e2-4f9b-99c3-3c239e6e4b9a
+~
+java:S6437"6Revoke and change this password, as it is compromised.(ó‡›Öüÿÿÿÿ8ÖÏìıü1J$1290429b-5d76-44c0-99ba-6be83604ad7a
+
+java:S1854j">Remove this useless assignment to local variable "actualSale".(ŸâÉÊ8–Ğìıü1J$c0d6e067-bec3-445b-8ed6-8ac8469b03ba
+r
+java:S1481j"/Remove this unused "actualSale" local variable.(ŸâÉÊ8•Ñìıü1J$0c1c532c-d328-46d8-a10f-454b199c4c22
+r	java:S106q"+Replace this use of System.out by a logger.(€ôôûÿÿÿÿ8›Ñìıü1J$c6c8ad2b-2ebd-4e12-93c1-4af78d9f96db
+r	java:S106y"+Replace this use of System.out by a logger.(¡Ï°Şùÿÿÿÿ8ŸÑìıü1J$7f58119a-caf4-470e-b6b7-369040a46051
+r	java:S106{"+Replace this use of System.out by a logger.(…§Ì†ùÿÿÿÿ8£Ñìıü1J$b8d18d13-e553-4b9c-98dd-cf460ba2bb38
