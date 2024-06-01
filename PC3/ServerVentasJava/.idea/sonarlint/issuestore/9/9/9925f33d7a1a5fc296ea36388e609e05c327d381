@@ -1,0 +1,18 @@
+
+Œ	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã¡úÑJ$1980711e-8658-46eb-82a7-2ab0c09c0da4
+‘	java:S117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åóŞˆúÿÿÿÿJ$54e7a84f-6986-4524-98e8-8c749c52e15c
+
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿJ$c465681e-5d99-4649-98bf-da0d0815e49e
+
+java:S2095*"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿJ$3b4279b7-7b40-4926-9785-b8c5dcda790e
+
+java:S2095:"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿJ$20b3c853-e1a2-4b76-91f2-2dddfaeb57cf
+X
+java:S6437"6Revoke and change this password, as it is compromised.(–‰šêøÿÿÿÿ8­³‹ˆı1
+{
+java:S18542":Remove this useless assignment to local variable "saleID".(¾”êşÿÿÿÿJ$98124116-4043-4204-9283-0994da753d05
+{
+java:S21232":Remove this increment or correct the code not to waste it.(¾”êşÿÿÿÿJ$ecc510ec-937d-483b-9325-9f27f660be14
+k	java:S106q"+Replace this use of System.out by a logger.(€ôôûÿÿÿÿJ$dfd62886-337c-496b-91f2-d25e16a4b978
+k	java:S106y"+Replace this use of System.out by a logger.(¡Ï°ŞùÿÿÿÿJ$e244ed0b-e7c2-4ff2-9db7-8c3d86dec2a1
+k	java:S106|"+Replace this use of System.out by a logger.(…§Ì†ùÿÿÿÿJ$e783602b-948e-4c01-a4ef-850a71fa2a68

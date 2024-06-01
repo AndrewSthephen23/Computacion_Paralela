@@ -1,14 +1,16 @@
 
 —
-java:S2095""OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8Ïìıü1J$47c82740-ede7-43e0-abaa-4c1f08607fcb
-u
-java:S4925"-Remove this "Class.forName()", it is useless.(õ†¨Äùÿÿÿÿ8´Ïìıü1J$363bb5d0-a4e2-4f9b-99c3-3c239e6e4b9a
-~
-java:S6437"6Revoke and change this password, as it is compromised.(ó‡›Öüÿÿÿÿ8ÖÏìıü1J$1290429b-5d76-44c0-99ba-6be83604ad7a
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$792c05fd-cc94-447f-b7ac-26b650694ed2
+—
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$1ee7aa3f-ed63-42ad-aaa4-7ef40587af9d
+—
+java:S2095;"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$f521cc5e-bd3d-4ba0-b80b-d337c1b456fd
+X
+java:S6437"6Revoke and change this password, as it is compromised.(–‰šêøÿÿÿÿ8Äíé…ı1
 
-java:S1854j">Remove this useless assignment to local variable "actualSale".(ŸâÉÊ8–Ğìıü1J$c0d6e067-bec3-445b-8ed6-8ac8469b03ba
+java:S1854b">Remove this useless assignment to local variable "actualSale".(ŸâÉÊ8É¯å…ı1J$330216a7-0bc7-4e3d-b439-4bef6eb253f2
 r
-java:S1481j"/Remove this unused "actualSale" local variable.(ŸâÉÊ8•Ñìıü1J$0c1c532c-d328-46d8-a10f-454b199c4c22
-r	java:S106q"+Replace this use of System.out by a logger.(€ôôûÿÿÿÿ8›Ñìıü1J$c6c8ad2b-2ebd-4e12-93c1-4af78d9f96db
-r	java:S106y"+Replace this use of System.out by a logger.(¡Ï°Şùÿÿÿÿ8ŸÑìıü1J$7f58119a-caf4-470e-b6b7-369040a46051
-r	java:S106{"+Replace this use of System.out by a logger.(…§Ì†ùÿÿÿÿ8£Ñìıü1J$b8d18d13-e553-4b9c-98dd-cf460ba2bb38
+java:S1481b"/Remove this unused "actualSale" local variable.(ŸâÉÊ8Î¯å…ı1J$b7c887ac-3c7e-47e7-9121-d5c5ffd95386
+r	java:S106i"+Replace this use of System.out by a logger.(€ôôûÿÿÿÿ8Ñ¯å…ı1J$a325e807-431f-4a4b-97c3-9f2764005e1b
+r	java:S106q"+Replace this use of System.out by a logger.(¡Ï°Şùÿÿÿÿ8Ò¯å…ı1J$9ca5c3f4-a934-43a4-b67d-6e14572d4433
+r	java:S106s"+Replace this use of System.out by a logger.(…§Ì†ùÿÿÿÿ8Ó¯å…ı1J$662a86d8-8de6-4033-a98a-5a483b5efbdc

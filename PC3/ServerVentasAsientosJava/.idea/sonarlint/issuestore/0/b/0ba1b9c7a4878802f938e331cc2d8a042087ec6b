@@ -1,5 +1,12 @@
 
-f
-java:S3457	"%String contains no format specifiers.(Šª„ıÿÿÿÿJ$474c327e-3e83-46a5-8e76-0877af69fa03
-k	java:S106	"+Replace this use of System.out by a logger.(Šª„ıÿÿÿÿJ$48893e5f-0eb2-4d11-be70-b228780188f5
-k	java:S106"+Replace this use of System.out by a logger.(Ğö¶üÿÿÿÿJ$ae1e22a0-eb7b-4705-aa9f-643f2f5e64ba
+j
+java:S2095	"HUse try-with-resources or close this "Connection" in a "finally" clause.(¾äıüÿÿÿÿ8¢ÊÖ…ı1
+e
+java:S2583
+"CChange this condition so that it does not always evaluate to "true"(ëº®×ıÿÿÿÿ8¥ÊÖ…ı1
+c
+java:S3626"Remove this redundant jump.(´Ñü˜ÿÿÿÿÿ8ÀÑÕ…ı1J$7a9e3cb4-772e-40c3-a586-3e6e924bc5df
+~
+java:S6437	"6Revoke and change this password, as it is compromised.(¾äıüÿÿÿÿ8ÀşÒ…ı1J$66b26e3e-3a51-4da9-972c-77b3217a5245
+r	java:S106"+Replace this use of System.out by a logger.(¡Ï°Şùÿÿÿÿ8ÅÑÕ…ı1J$c1dbb960-34b6-46a1-b417-57a87a6f4c92
+r	java:S106"+Replace this use of System.out by a logger.(…§Ì†ùÿÿÿÿ8ÇÑÕ…ı1J$519aaaec-0936-45a7-9bae-8392d2fe8761

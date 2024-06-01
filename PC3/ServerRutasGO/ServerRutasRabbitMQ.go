@@ -15,14 +15,14 @@ import (
 
 // Estructura que representa una ruta.
 type Ruta struct {
-	ID          int
-	NameRuta    string
-	DesdeLugar  string
-	HastaLugar  string
-	Unit        int
-	Amount      int
-	Cost        float64
-	IDBus       int
+	ID         int
+	NameRuta   string
+	DesdeLugar string
+	HastaLugar string
+	Unit       int
+	Amount     int
+	Cost       float64
+	IDBus      int
 }
 
 // Convierte una lista de Rutas en una cadena de texto.
@@ -192,10 +192,10 @@ func main() {
 	}
 
 	// Conexión a RabbitMQ
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:15672/viajes_host")
+	conn, err := amqp.Dial("amqp://admin:admin@localhost:5672/viajes_host")
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
-	
+
 	// Canal de comunicaciones con RabbitMQ.
 	ch, err := conn.Channel()
 	failOnError(err, "Failed to open the client channel")

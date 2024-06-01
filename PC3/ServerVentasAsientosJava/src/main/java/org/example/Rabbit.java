@@ -23,7 +23,7 @@ public class Rabbit {
     void initChannel(String queueName) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        factory.setPort(15672);
+        factory.setPort(5672);
         factory.setVirtualHost("viajes_host");
         factory.setUsername("admin");
         factory.setPassword("admin");

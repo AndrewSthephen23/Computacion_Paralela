@@ -1,11 +1,11 @@
 
-q
-java:S1104"TMake id_sales a static final constant or non-public and provide accessors if needed.(Ë½„…8¦éüü1
-l
-java:S1104"OMake ruc a static final constant or non-public and provide accessors if needed.(ÌäÎ±8§éüü1
-r
-java:S1104"PMake name a static final constant or non-public and provide accessors if needed.(Ø±Ùíüÿÿÿÿ8§éüü1
-x
-java:S1104"VMake cost_total a static final constant or non-public and provide accessors if needed.(“àŞŠşÿÿÿÿ8¨éüü1
-o	java:S116"SRename this field "id_sales" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë½„…8¯éüü1
-v	java:S116"URename this field "cost_total" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“àŞŠşÿÿÿÿ8¯éüü1
+—
+java:S1104"TMake id_sales a static final constant or non-public and provide accessors if needed.(Ë½„…8¦éüü1J$d9f03d75-b64a-426a-b05c-506bcf972d13
+’
+java:S1104"OMake ruc a static final constant or non-public and provide accessors if needed.(ÌäÎ±8§éüü1J$516093a4-e82d-456a-8c85-ac39db8c34e9
+˜
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.(Ø±Ùíüÿÿÿÿ8§éüü1J$4814e3c0-5449-4ed3-81a6-f3980394f787
+
+java:S1104"VMake cost_total a static final constant or non-public and provide accessors if needed.(“àŞŠşÿÿÿÿ8¨éüü1J$4b757eaa-74b1-416d-88b5-00891615669e
+•	java:S116"SRename this field "id_sales" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë½„…8¯éüü1J$4bef3509-2d62-487c-9fe2-8f702aac8657
+œ	java:S116"URename this field "cost_total" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“àŞŠşÿÿÿÿ8¯éüü1J$f0d13368-f2d7-48fe-81f8-13fccd9b006e

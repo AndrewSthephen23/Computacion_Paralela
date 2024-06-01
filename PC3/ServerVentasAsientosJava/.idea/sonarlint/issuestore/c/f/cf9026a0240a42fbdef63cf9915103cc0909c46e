@@ -1,25 +1,25 @@
 
 —
-java:S1104"TMake id_sales a static final constant or non-public and provide accessors if needed.(Ë½„…8âÛ£üü1J$ba6a2370-fc8c-41af-b559-4503035d2f50
+java:S1104"TMake id_sales a static final constant or non-public and provide accessors if needed.(Ë½„…8âÛ£üü1J$38ac0ffc-5dc7-4f6f-85c2-c649f81a33cf
 –
-java:S1104"SMake id_ruta a static final constant or non-public and provide accessors if needed.(Œåëğ8äÛ£üü1J$5a04bd68-9e52-4b52-be04-9558de917cd3
+java:S1104"SMake id_ruta a static final constant or non-public and provide accessors if needed.(Œåëğ8äÛ£üü1J$ee95a427-1648-4b0e-bea1-37adb917cf92
 š
-java:S1104"RMake nombre a static final constant or non-public and provide accessors if needed.(›‚àõşÿÿÿÿ8åÛ£üü1J$80b2c82f-660f-4a50-9791-98f1f31cc7af
+java:S1104"RMake nombre a static final constant or non-public and provide accessors if needed.(›‚àõşÿÿÿÿ8åÛ£üü1J$a90857fc-0b07-467d-a3b4-93f6a9a15e77
 ˜
-java:S1104"UMake name_prod a static final constant or non-public and provide accessors if needed.(ÈÏš±8åÛ£üü1J$b764d020-4f01-41f6-8ac3-ad9271ce970d
+java:S1104"UMake name_prod a static final constant or non-public and provide accessors if needed.(ÈÏš±8åÛ£üü1J$dbba26e1-500e-40c5-a406-37af32a5df93
 ¤
-java:S1104"\Make descripcion_ruta a static final constant or non-public and provide accessors if needed.( šˆöşÿÿÿÿ8åÛ£üü1J$42070901-70e4-4e99-904d-11ce52178da9
+java:S1104"\Make descripcion_ruta a static final constant or non-public and provide accessors if needed.( šˆöşÿÿÿÿ8åÛ£üü1J$a57dfe39-9d75-467e-b01d-84ef130629e2
 ›
-java:S1104	"XMake lugar_compra a static final constant or non-public and provide accessors if needed.(Ô¦ù™8åÛ£üü1J$a67ce3c6-659b-45ed-b6e0-89d51a72e562
+java:S1104	"XMake lugar_compra a static final constant or non-public and provide accessors if needed.(Ô¦ù™8åÛ£üü1J$d9806897-dfb0-4103-9cf7-0f530aaf6998
 –
 java:S1104
-"SMake asiento a static final constant or non-public and provide accessors if needed.(ğôûâ8æÛ£üü1J$2afd0bd0-3d61-4438-a995-68310a78abaf
+"SMake asiento a static final constant or non-public and provide accessors if needed.(ğôûâ8æÛ£üü1J$6cb12768-ca1d-40e5-b5ec-19feda129fa0
 “
-java:S1104"PMake cost a static final constant or non-public and provide accessors if needed.(ìœê8æÛ£üü1J$41ac674d-0609-4595-8406-81644171230a
+java:S1104"PMake cost a static final constant or non-public and provide accessors if needed.(ìœê8æÛ£üü1J$c1224113-a37d-4e12-853e-69ae55269165
 “
-java:S1104"QMake total a static final constant or non-public and provide accessors if needed.(üE8æÛ£üü1J$437d534e-f176-4f9e-8d22-7a7920b32de8
-•	java:S116"SRename this field "id_sales" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë½„…8íÛ£üü1J$2179f3a9-351d-471f-a0dd-833290bc5f37
-”	java:S116"RRename this field "id_ruta" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œåëğ8íÛ£üü1J$f169eef7-bea6-4a2b-90be-0ea56cc2423c
-–	java:S116"TRename this field "name_prod" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÏš±8íÛ£üü1J$845dc75d-ff0b-4fdd-bcb3-75ac04435aeb
-¢	java:S116"[Rename this field "descripcion_ruta" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( šˆöşÿÿÿÿ8îÛ£üü1J$6fd40d43-f2a3-44b5-9489-61ededb9972d
-™	java:S116	"WRename this field "lugar_compra" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô¦ù™8îÛ£üü1J$8edd92c5-d2ea-46e7-a721-953f93e2bdd6
+java:S1104"QMake total a static final constant or non-public and provide accessors if needed.(üE8æÛ£üü1J$404c09cd-adc3-4a2d-b6fc-b69a327a7824
+•	java:S116"SRename this field "id_sales" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë½„…8íÛ£üü1J$4bb3da13-05d7-4da4-8eae-03ab7fdb5099
+”	java:S116"RRename this field "id_ruta" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œåëğ8íÛ£üü1J$c980f53e-f48a-478a-9c77-f5c72760f909
+–	java:S116"TRename this field "name_prod" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÏš±8íÛ£üü1J$54dde6bf-f9a6-493d-bcc3-bab83fd0e842
+¢	java:S116"[Rename this field "descripcion_ruta" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( šˆöşÿÿÿÿ8îÛ£üü1J$d10372ea-0b71-40b8-8d8a-313966d44722
+™	java:S116	"WRename this field "lugar_compra" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô¦ù™8îÛ£üü1J$bfae58b6-d275-4046-af2c-dbcccadd0181

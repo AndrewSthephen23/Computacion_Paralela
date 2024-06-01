@@ -1,12 +1,12 @@
 
-	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä­Íıü1J$68e8abc9-7372-40f5-8986-acae40cba9b8
-
-java:S2095 "EUse try-with-resources or close this "Channel" in a "finally" clause.(‡î‰´ûÿÿÿÿ8ü­Íıü1J$fcf956a5-4fd7-48f6-aecb-450b77d9c43c
+	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä­Íıü1J$9672b9ce-f655-41d2-97f7-52972fc5c397
 ‹
-java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(“…§Ú8ı­Íıü1J$4f9d1203-2a27-48d7-8351-ba03490d7339
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(“…§Ú8ı­Íıü1J$ddff659f-4fde-4a2f-aed0-647e86223a4c
+
+java:S2095 "EUse try-with-resources or close this "Channel" in a "finally" clause.(‡î‰´ûÿÿÿÿ8ü­Íıü1J$da41fa62-fab7-435d-adbc-d72ffa5e590f
 ˆ
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¨¤¦ò8‘®Íıü1J$6cbda245-3309-4167-bab3-a45a8e103085
-l	java:S106"+Replace this use of System.out by a logger.(’š8®Íıü1J$6b9e0e95-4344-477c-9d87-38abb65da912
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¨¤¦ò8‘®Íıü1J$36ba21c6-de8e-41a3-b331-d9ff53f8680f
+l	java:S106"+Replace this use of System.out by a logger.(’š8®Íıü1J$df3065ab-e0bc-4da2-b9cd-d019dd86fdee
 |
-java:S4719("9Replace charset name argument with StandardCharsets.UTF_8(ò”®ª8É®Íıü1J$0f955da9-2e2d-402d-af53-1a15211440a5
-r	java:S106)"+Replace this use of System.out by a logger.(Á£”¸şÿÿÿÿ8Ê®Íıü1J$66e8ba35-dca3-4a82-ba9d-2a6849a8ea38
+java:S4719("9Replace charset name argument with StandardCharsets.UTF_8(ò”®ª8É®Íıü1J$5153156d-f668-436e-a550-239885b685a0
+r	java:S106)"+Replace this use of System.out by a logger.(Á£”¸şÿÿÿÿ8Ê®Íıü1J$eb944c5d-8768-47e9-8193-2a69f132933a

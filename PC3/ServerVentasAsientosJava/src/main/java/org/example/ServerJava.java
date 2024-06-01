@@ -10,20 +10,12 @@ public class ServerJava {
     private Connection postgresConnection;
 
     // Método para establecer una conexión a la base de datos PostgreSQL
-    public void connectToPostgres() {
-        try {
-            // Carga el driver de PostgreSQL
-            Class.forName("org.postgresql.Driver");
-            // Establece la URL, el nombre de usuario y la contraseña
-            String url = "jdbc:postgresql://localhost:5432/salesdb";
-            String username = "postgres";
-            String password = "admin";
+    public void connectToPostgres() throws SQLException{
 
-            // Establece la conexión a la base de datos PostgreSQL
-            postgresConnection = DriverManager.getConnection(url, username, password);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace(); // Imprime el error
-        }
+        // Establece la URL, el nombre de usuario y la contraseña
+        // Establece la conexión a la base de datos PostgreSQL
+        postgresConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/salesbd","postgres","admin");
+
     }
 
     // Método para obtener el id de la venta actual desde la base de datos

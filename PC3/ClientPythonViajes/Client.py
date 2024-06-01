@@ -1,11 +1,11 @@
-# Importamos las librerias
-import random 
+# Importamos las librerías
+import random
 import time #Para manejar el tiempo y pausas
 import pika #Para mejorar la comunicación con RabbitMQ
-import uuid #Para generar un ID unico
-import flet as ft #Para crear la interfaz grafica
+import uuid #Para generar un ID único
+import flet as ft #Para crear la interfaz gráfica
 
-#Define la clase System que maneja la logica principal del sistema
+# Define la clase System que maneja la lógica principal del sistema
 class System:
     # Variables para el usuario, el ruc y el carrito de compras
     username = ""
@@ -16,11 +16,11 @@ class System:
     def __init__(self):
         # Credenciales para conectarse a RabbitMQ
         credentials = pika.PlainCredentials('admin', 'admin')
-        # Establece la coneccion con RabbitMQ
+        # Establece la conexión con RabbitMQ
         self.connection = pika.BlockingConnection(
             pika.ConnectionParameters('localhost', 5672, 'viajes_host', credentials))
-        
-        # Crea un canal para la comunicacion 
+
+        # Crea un canal para la comunicación 
         self.channel = self.connection.channel()
 
         # Declara una cola exclusiva para las respuestas
@@ -37,23 +37,23 @@ class System:
         self.response = None
         self.corr_id = None
 
-    # Metodo para editar el carrito de compras
+    # Método para editar el carrito de compras
     def edit_cart(self, id, type, tf):
-        # Si el ID del producto ya esta en el carrito, actualiza la cantidad
+        # Si el ID del producto ya está en el carrito, actualiza la cantidad
         if id in self.cart:
             self.cart[id] += type
             # Si la cantidad es 0, elimina el ID del producto del carrito
             if self.cart[id] == 0:
                 del self.cart[id]
         else:
-            # Si el ID del producto no esta en el carrito, lo agrega con cantidad 1
+            # Si el ID del producto no está en el carrito, lo agrega con cantidad 1
             self.cart[id] = 1
         # Actualiza el valor de la caja de texto con la cantidad actual del producto    
         tf.value = str(self.cart[id]) if id in self.cart else "0"
         tf.update()
-    
-    # Metodo para limpiar el carrito de compras
-    def clear_cart(self,tf_list):
+
+    # Método para limpiar el carrito de compras
+    def clear_cart(self, tf_list):
         # Limpia el carrito de compras
         self.cart = {}
         # Actualiza todos los campos de texto a "0"        
@@ -61,7 +61,7 @@ class System:
             tf.value = "0"
             tf.update()
 
-    # Metodo para obtener la lista de productos desde el servidor
+    # Método para obtener la lista de productos desde el servidor
     def get_products(self):
         self.response = None
         self.corr_id = str(uuid.uuid4())
@@ -75,7 +75,7 @@ class System:
                 correlation_id=self.corr_id,
             ),
             body="get_products")
-        
+
         # Espera la respuesta del servidor
         self.connection.process_data_events(time_limit=None)
         # Devuelve la respuesta recibida
@@ -87,11 +87,39 @@ class System:
         if self.corr_id == props.correlation_id:
             self.response = body
 
-    # Metodo para generar una factura
+    # Método para verificar la disponibilidad de asientos
+    def check_seat_availability(self):
+        self.response = None
+        self.corr_id = str(uuid.uuid4())
+
+        # Crea el mensaje para verificar la disponibilidad de asientos
+        mensaje = "check_seats;"
+        for route_id, quantity in self.cart.items():
+            mensaje += f"{route_id},{quantity};"
+        mensaje = mensaje[:-1]  # Elimina el último ';'
+
+        # Publica la solicitud de verificación en la cola de peticiones
+        self.channel.basic_publish(
+            exchange='',
+            routing_key='go-python-queue',
+            properties=pika.BasicProperties(
+                reply_to=self.callback_queue,
+                correlation_id=self.corr_id,
+            ),
+            body=mensaje)
+
+        # Espera la respuesta del servidor
+        self.connection.process_data_events(time_limit=None)
+        # Procesa la respuesta recibida
+        response_str = str(self.response, "utf-8")
+        available = response_str == "available"
+        return available
+
+    # Método para generar una factura
     def generate_bill(self, mensaje):
         self.response = None
         self.corr_id = str(uuid.uuid4())
-        # Publica la solicitud de generacion de factura en la cola
+        # Publica la solicitud de generación de factura en la cola
         self.channel.basic_publish(
             exchange='',
             routing_key='go-python-queue',
@@ -108,15 +136,15 @@ class System:
 # Crea un objeto de la clase System
 system = System()
 
-# Define la funcion para la pagina inicial de la aplicacion
+# Define la función para la página inicial de la aplicación
 def initial_page(page: ft.Page):
-    # Limpia la pagina y reinicia las variables del sistema
+    # Limpia la página y reinicia las variables del sistema
     page.clean()
     system.username = ""
     system.ruc = ""
     system.cart = {}
 
-    # Funcion para manejar el inicio de session
+    # Función para manejar el inicio de sesión
     def login(username, ruc):
         system.username = username
         system.ruc = ruc
@@ -134,7 +162,7 @@ def initial_page(page: ft.Page):
         width=200
     )
 
-    # Agrega los elementos a la pagina
+    # Agrega los elementos a la página
     page.add(ft.SafeArea(
         content=ft.Container(
             content=ft.Column(
@@ -174,12 +202,12 @@ def initial_page(page: ft.Page):
         minimum=30
     ))
 
-# Define la funcion para mostrar los productos
+# Define la función para mostrar los productos
 def show_products(page: ft.Page):
     prods = system.get_products() # Obtiene los productos del servidor
     prods = prods[:-1] # Elimina el ";" al final
     prods = prods.split(";") # Separa la cadena en una lista de productos
-    page.clean() # Limpia la pagina 
+    page.clean() # Limpia la página 
     rows_list = [] # Lista para almacenar las filas de la tabla
     tf_list = [] # Lista para almacenar los campos de texto
     for prod in prods:
@@ -206,7 +234,7 @@ def show_products(page: ft.Page):
                 content=ft.Text(items[0])),
             ft.DataCell(
                 ft.Text(items[1])),
-            ft.DataCell(    
+            ft.DataCell(
                 ft.Text(items[2])),
             ft.DataCell(
                 ft.Row(
@@ -224,7 +252,7 @@ def show_products(page: ft.Page):
                             icon_color="blue400",
                             icon_size=20,
                             tooltip="Agregar al carrito",
-                            on_click=create_add_func() # Llama a la funcion para añadir al carrito
+                            on_click=create_add_func() # Llama a la función para añadir al carrito
                         ),
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
@@ -234,7 +262,7 @@ def show_products(page: ft.Page):
         ]
         rows_list.append(temp) # Añade la fila a la lista
 
-    # Añade los elementos a la pagina
+    # Añade los elementos a la página
     page.add(ft.SafeArea(
         content=ft.Container(
             content=ft.Column(
@@ -271,7 +299,7 @@ def show_products(page: ft.Page):
                         text="Generar Factura",
                         width=200,
                         height=40,
-                        on_click=lambda e: generate_bill(page) # Llama a la funcion para generar la factura
+                        on_click=lambda e: generate_bill(page) # Llama a la función para generar la factura
                     ),
                     ft.Row(
                         controls=[
@@ -279,13 +307,13 @@ def show_products(page: ft.Page):
                                 text="Borrar Carrito",
                                 width=200,
                                 height=40,
-                                on_click=lambda e: system.clear_cart(tf_list) # Llama a la funcion para borrar el carrito
+                                on_click=lambda e: system.clear_cart(tf_list) # Llama a la función para borrar el carrito
                             ),
                             ft.ElevatedButton(
                                 text="Volver",
                                 width=200,
                                 height=40,
-                                on_click=lambda e: main_page(page),# Llama a la funcion para volver a la pagina principal
+                                on_click=lambda e: main_page(page),# Llama a la función para volver a la página principal
                             )
                         ],
                         alignment=ft.MainAxisAlignment.CENTER,
@@ -298,21 +326,30 @@ def show_products(page: ft.Page):
             ),
         )))
 
-# Funcion para generar la factura
+# Función para generar la factura
 def generate_bill(page: ft.Page):
-    if len(system.cart) == 0:# Si el carrito esta vacio, no hace nada
+    if len(system.cart) == 0:# Si el carrito está vacío, no hace nada
         return
-    
-    # Funcion para enviar la factura
+
+    # Función para enviar la factura
     def send_bill(e):
+        if not system.check_seat_availability():
+            ft.dialog(
+                title="Error",
+                content=ft.Text("No hay suficientes asientos disponibles para uno o más productos."),
+                open=True
+            )
+            return
+
         mensaje = system.username + ";" + system.ruc + ";"
-        for id in system.cart:# Añade los productos del carrito  al mensaje
+        for id in system.cart:# Añade los productos del carrito al mensaje
             mensaje += str(id) + "," + str(system.cart[id]) + "/"
-        mensaje = mensaje[:-1] # Elimina el ultimo caracter del mensaje
-        system.cart = {} # Vacia el carrito
+        mensaje = mensaje[:-1] # Elimina el último carácter del mensaje
+        system.cart = {} # Vacía el carrito
         status = system.generate_bill(mensaje) # Genera la factura
-        main_page(page,status) # Navega a la pagina principal con el status de la factura
-    page.clean() # Limpia la pagina
+        main_page(page, status) # Navega a la página principal con el status de la factura
+
+    page.clean() # Limpia la página
     page.add(ft.SafeArea(
         content=ft.Container(
             content=ft.Column(
@@ -331,11 +368,11 @@ def generate_bill(page: ft.Page):
                             ft.DataRow(
                                 cells=[
                                     ft.DataCell(
-                                        content=ft.Text(items[0])),
+                                        content=ft.Text(str(id))),
                                     ft.DataCell(
-                                        content=ft.Text(items[1])),
+                                        content=ft.Text(str(quantity))),
                                 ]
-                            ) for items in system.cart.items()
+                            ) for id, quantity in system.cart.items()
                         ],
                         width=1000,
                     ),
@@ -343,13 +380,13 @@ def generate_bill(page: ft.Page):
                         text="Generar Factura",
                         width=200,
                         height=40,
-                        on_click=send_bill # Llama a la funcion para enviar la factura
+                        on_click=send_bill # Llama a la función para enviar la factura
                     ),
                     ft.ElevatedButton(
                         text="Volver",
                         width=200,
                         height=40,
-                        on_click=lambda e: main_page(page), # Llama a la funcion para volver a la pagina principal
+                        on_click=lambda e: main_page(page), # Llama a la función para volver a la página principal
                     )
                 ],
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -361,9 +398,9 @@ def generate_bill(page: ft.Page):
         minimum=30
     ))
 
-# Funcion para mostrar la pagina principal
+# Función para mostrar la página principal
 def main_page(page: ft.Page, message=""):
-    page.clean() # Limpia la pagina
+    page.clean() # Limpia la página
     user_text = ft.Text(
         value="Bienvenido " + system.username + " con RUC: " + system.ruc,
         font_family="Arial",
@@ -386,19 +423,19 @@ def main_page(page: ft.Page, message=""):
                         text="Generar Factura",
                         width=200,
                         height=40,
-                        on_click=lambda e: generate_bill(page) # Llama a la funcion para generar la factura
+                        on_click=lambda e: generate_bill(page) # Llama a la función para generar la factura
                     ),
                     ft.ElevatedButton(
                         text="Ver Productos",
                         width=200,
                         height=40,
-                        on_click=lambda e: show_products(page) # Llama a la funcion para mostrar los productos
+                        on_click=lambda e: show_products(page) # Llama a la función para mostrar los productos
                     ),
                     ft.ElevatedButton(
                         text="Salir",
                         width=200,
                         height=40,
-                        on_click=lambda e: initial_page(page) # Llama a la funcion para cerrar la sesion
+                        on_click=lambda e: initial_page(page) # Llama a la función para cerrar la sesión
                     )
                 ],
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -409,20 +446,18 @@ def main_page(page: ft.Page, message=""):
         minimum=30
     ))
 
-# Funcion principal para configurar la ventana
+# Función principal para configurar la ventana
 def main_window(page: ft.Page):
     page.window_height = 750 # Establece la altura de la ventana
     page.window_width = 1000 # Establece el ancho de la ventana
     page.window_resizable = False # La ventana no es redimensionable
     page.window_full_screen = False # La ventana no es de pantalla completa
-    page.horizontal_alignment = ft.MainAxisAlignment.CENTER # Alineacion horizontal centrada
-    page.title = "Sistema Venta" # Titulo de la ventana
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER # Alineacion horizontal centrada
+    page.horizontal_alignment = ft.MainAxisAlignment.CENTER # Alineación horizontal centrada
+    page.title = "Sistema Venta" # Título de la ventana
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER # Alineación horizontal centrada
     page.window_center() # Centra la ventana
     page.window_visible = True # Hace visible la ventana
-    initial_page(page) # Muestra la pagina inicial
+    initial_page(page) # Muestra la página inicial
 
-# Inicia la aplicacion
+# Inicia la aplicación
 ft.app(target=main_window, view=ft.AppView.FLET_APP_HIDDEN)
-
-

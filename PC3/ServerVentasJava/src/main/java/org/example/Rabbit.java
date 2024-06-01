@@ -32,9 +32,9 @@ public class Rabbit {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost"); // Establece la IP del servidor RabbitMQ
         factory.setPort(5672);// Establece el puerto del servidor RabbitMQ
-        factory.setVirtualHost("venta_host");// Establece el nombre del host virtual de RabbitMQ
-        factory.setUsername("chan");// Establece el nombre de usuario de RabbitMQ
-        factory.setPassword("chan"); // Establece la contraseña de RabbitMQ
+        factory.setVirtualHost("viajes_host");// Establece el nombre del host virtual de RabbitMQ
+        factory.setUsername("admin");// Establece el nombre de usuario de RabbitMQ
+        factory.setPassword("admin"); // Establece la contraseña de RabbitMQ
 
         // Crea una nueva conexion y un canal para la comunicacion
         Connection connection = factory.newConnection();
