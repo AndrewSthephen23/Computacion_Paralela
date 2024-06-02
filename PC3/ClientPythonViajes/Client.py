@@ -4,6 +4,7 @@ import time #Para manejar el tiempo y pausas
 import pika #Para mejorar la comunicación con RabbitMQ
 import uuid #Para generar un ID único
 import flet as ft #Para crear la interfaz gráfica
+import asyncio # Para manejar el bucle de eventos
 
 # Define la clase System que maneja la lógica principal del sistema
 class System:
@@ -252,83 +253,51 @@ def show_products(page: ft.Page):
                             icon_color="blue400",
                             icon_size=20,
                             tooltip="Agregar al carrito",
-                            on_click=create_add_func() # Llama a la función para añadir al carrito
+                            on_click=create_add_func() # Llama a la función para agregar al carrito
                         ),
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
-                    spacing=10,
-                )
-            )
+                )),
         ]
-        rows_list.append(temp) # Añade la fila a la lista
+        rows_list.append(ft.DataRow(cells=temp)) # Añade la fila a la lista
 
-    # Añade los elementos a la página
+    # Agrega los elementos a la página
     page.add(ft.SafeArea(
         content=ft.Container(
             content=ft.Column(
                 controls=[
-                    ft.Column(
-                        controls=[
-                            ft.Text(
-                                value="Productos",
-                                font_family="Arial",
-                                color="blue",
-                                size=40,
-                            ),
-                            ft.DataTable(
-                                columns=[
-                                    ft.DataColumn(ft.Text(col_name)) for col_name in ["ID", "Nombre", "Precio", "Agregar"]
-                                ],
-                                rows=[
-                                    ft.DataRow(
-                                        cells=cell
-                                    ) for cell in rows_list
-                                ],
-                                width=1000,
-                                height=4900,
-                            ),
+                    ft.Text(
+                        value="Productos",
+                        font_family="Arial",
+                        color="blue",
+                        size=40,
+                    ),
+                    ft.DataTable(
+                        columns=[
+                            ft.DataColumn(ft.Text(col_name)) for col_name in ["ID", "Nombre", "Precio", "Agregar"]
                         ],
-                        scroll=True,
+                        rows=[
+                            ft.DataRow(
+                                cells=cell
+                            ) for cell in rows_list
+                        ],
                         width=1000,
-                        height=500,
-                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                        alignment=ft.MainAxisAlignment.CENTER,
-                        spacing=30
+                        height=4900,
                     ),
-                    ft.ElevatedButton(
-                        text="Generar Factura",
-                        width=200,
-                        height=40,
-                        on_click=lambda e: generate_bill(page) # Llama a la función para generar la factura
-                    ),
-                    ft.Row(
-                        controls=[
-                            ft.ElevatedButton(
-                                text="Borrar Carrito",
-                                width=200,
-                                height=40,
-                                on_click=lambda e: system.clear_cart(tf_list) # Llama a la función para borrar el carrito
-                            ),
-                            ft.ElevatedButton(
-                                text="Volver",
-                                width=200,
-                                height=40,
-                                on_click=lambda e: main_page(page),# Llama a la función para volver a la página principal
-                            )
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                        spacing=30
-                    )],
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                ],
+                scroll=True,
                 width=1000,
-                height=700,
-                spacing=40
+                height=500,
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                alignment=ft.MainAxisAlignment.CENTER,
+                spacing=30
             ),
+            minimum=30
         )))
 
 # Función para generar la factura
 def generate_bill(page: ft.Page):
-    if len(system.cart) == 0:# Si el carrito está vacío, no hace nada
+    if len(system.cart) == 0: # Si el carrito está vacío, no hace nada
         return
 
     # Función para enviar la factura
@@ -342,7 +311,7 @@ def generate_bill(page: ft.Page):
             return
 
         mensaje = system.username + ";" + system.ruc + ";"
-        for id in system.cart:# Añade los productos del carrito al mensaje
+        for id in system.cart: # Añade los productos del carrito al mensaje
             mensaje += str(id) + "," + str(system.cart[id]) + "/"
         mensaje = mensaje[:-1] # Elimina el último carácter del mensaje
         system.cart = {} # Vacía el carrito
@@ -393,10 +362,9 @@ def generate_bill(page: ft.Page):
                 alignment=ft.MainAxisAlignment.CENTER,
                 spacing=30,
                 scroll=True
-            )
-        ),
-        minimum=30
-    ))
+            ),
+            minimum=30
+        )))
 
 # Función para mostrar la página principal
 def main_page(page: ft.Page, message=""):
@@ -459,5 +427,19 @@ def main_window(page: ft.Page):
     page.window_visible = True # Hace visible la ventana
     initial_page(page) # Muestra la página inicial
 
-# Inicia la aplicación
-ft.app(target=main_window, view=ft.AppView.FLET_APP_HIDDEN)
+# Ejecuta la aplicación en un bucle de eventos existente si es necesario
+if __name__ == "__main__":
+    try:
+        # Intenta obtener el bucle de eventos actual
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            # Si ya está ejecutándose, usa run_until_complete
+            loop.run_until_complete(ft.app_async(target=main_window, view=ft.AppView.FLET_APP_HIDDEN))
+        else:
+            # Si no está ejecutándose, usa run
+            asyncio.run(ft.app_async(target=main_window, view=ft.AppView.FLET_APP_HIDDEN))
+    except RuntimeError as e:
+        # Si no hay un bucle de eventos, crea uno nuevo
+        new_loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(new_loop)
+        new_loop.run_until_complete(ft.app_async(target=main_window, view=ft.AppView.FLET_APP_HIDDEN))
