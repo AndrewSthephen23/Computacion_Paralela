@@ -1,16 +1,16 @@
 
 —
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$792c05fd-cc94-447f-b7ac-26b650694ed2
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$8c7b5452-33b0-450b-8bd9-b89e317271df
 —
-java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$1ee7aa3f-ed63-42ad-aaa4-7ef40587af9d
+java:S2095;"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$7b8d8255-b9e3-49d1-a79b-31a515eac8e4
 —
-java:S2095;"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$f521cc5e-bd3d-4ba0-b80b-d337c1b456fd
-X
-java:S6437"6Revoke and change this password, as it is compromised.(–‰šêøÿÿÿÿ8Äíé…ı1
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ìÙ¬€üÿÿÿÿ8º¯å…ı1J$44637e2f-79b7-4047-9c84-1e87f2407e38
+~
+java:S6437"6Revoke and change this password, as it is compromised.(–‰šêøÿÿÿÿ8Äíé…ı1J$fd2a676b-341c-4867-b482-dba52b43a811
 
-java:S1854b">Remove this useless assignment to local variable "actualSale".(ŸâÉÊ8É¯å…ı1J$330216a7-0bc7-4e3d-b439-4bef6eb253f2
+java:S1854b">Remove this useless assignment to local variable "actualSale".(ŸâÉÊ8É¯å…ı1J$b0253f50-d39c-41be-8e51-61264deabaf6
 r
-java:S1481b"/Remove this unused "actualSale" local variable.(ŸâÉÊ8Î¯å…ı1J$b7c887ac-3c7e-47e7-9121-d5c5ffd95386
-r	java:S106i"+Replace this use of System.out by a logger.(€ôôûÿÿÿÿ8Ñ¯å…ı1J$a325e807-431f-4a4b-97c3-9f2764005e1b
-r	java:S106q"+Replace this use of System.out by a logger.(¡Ï°Şùÿÿÿÿ8Ò¯å…ı1J$9ca5c3f4-a934-43a4-b67d-6e14572d4433
-r	java:S106s"+Replace this use of System.out by a logger.(…§Ì†ùÿÿÿÿ8Ó¯å…ı1J$662a86d8-8de6-4033-a98a-5a483b5efbdc
+java:S1481b"/Remove this unused "actualSale" local variable.(ŸâÉÊ8Î¯å…ı1J$67091ca3-13aa-4230-9a92-cb1ba89bf7f1
+r	java:S106i"+Replace this use of System.out by a logger.(€ôôûÿÿÿÿ8Ñ¯å…ı1J$3b634f7d-8d72-44be-9aa3-257d17527ddf
+r	java:S106q"+Replace this use of System.out by a logger.(¡Ï°Şùÿÿÿÿ8Ò¯å…ı1J$afb4d963-b36c-478a-a11d-b5b80a2b548d
+r	java:S106s"+Replace this use of System.out by a logger.(…§Ì†ùÿÿÿÿ8Ó¯å…ı1J$0639f893-0150-4a5b-bd9c-a63202537b9b
