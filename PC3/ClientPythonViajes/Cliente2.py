@@ -1,10 +1,8 @@
 # Importamos las librerías
-import random
-import time #Para manejar el tiempo y pausas
-import pika #Para mejorar la comunicación con RabbitMQ
-import uuid #Para generar un ID único
-import flet as ft #Para crear la interfaz gráfica
-import asyncio # Para manejar el bucle de eventos
+import pika  # Para la comunicación con RabbitMQ
+import uuid  # Para generar un ID único
+import flet as ft  # Para crear la interfaz gráfica
+import threading  # Para manejar hilos
 
 # Define la clase System que maneja la lógica principal del sistema
 class System:
@@ -38,112 +36,35 @@ class System:
         self.response = None
         self.corr_id = None
 
-    # Método para editar el carrito de compras
-    def edit_cart(self, id, type, tf):
-        # Si el ID del producto ya está en el carrito, actualiza la cantidad
-        if id in self.cart:
-            self.cart[id] += type
-            # Si la cantidad es 0, elimina el ID del producto del carrito
-            if self.cart[id] == 0:
-                del self.cart[id]
-        else:
-            # Si el ID del producto no está en el carrito, lo agrega con cantidad 1
-            self.cart[id] = 1
-        # Actualiza el valor de la caja de texto con la cantidad actual del producto    
-        tf.value = str(self.cart[id]) if id in self.cart else "0"
-        tf.update()
+        # Hilo para recibir mensajes
+        self.receive_thread = threading.Thread(target=self.receive_messages)
+        self.receive_thread.start()
 
-    # Método para limpiar el carrito de compras
-    def clear_cart(self, tf_list):
-        # Limpia el carrito de compras
-        self.cart = {}
-        # Actualiza todos los campos de texto a "0"        
-        for tf in tf_list:
-            tf.value = "0"
-            tf.update()
+    # Método para enviar mensajes
+    def send_messages(self, origen, destino, cantidad):
+        mensaje = f"{self.username};{self.ruc};{origen};{destino};{cantidad}"
+        self.channel.basic_publish(exchange='', routing_key='viajes_host', body=mensaje)
 
-    # Método para obtener la lista de productos desde el servidor
-    def get_products(self):
-        self.response = None
-        self.corr_id = str(uuid.uuid4())
-
-        # Publica una solicitud de productos en la cola de peticiones
-        self.channel.basic_publish(
-            exchange='',
-            routing_key='go-python-queue',
-            properties=pika.BasicProperties(
-                reply_to=self.callback_queue,
-                correlation_id=self.corr_id,
-            ),
-            body="get_rutas")
-
-        # Espera la respuesta del servidor
-        self.connection.process_data_events(time_limit=None)
-        # Devuelve la respuesta recibida
-        return str(self.response, "utf-8")
+    # Método para recibir mensajes
+    def receive_messages(self):
+        def callback(ch, method, properties, body):
+            if body.decode() == "0":
+                print("cantidad no disponible")
+            elif body.decode() == "2":
+                print("compra exitosa")
+            else:
+                subcadenas = body.decode().split(";")
+                self.channel.basic_publish(exchange="", routing_key='recibido',
+                                           body=f"{self.username};{self.ruc};{subcadenas[0]};{subcadenas[1]};{subcadenas[2]};{subcadenas[3]}")
+        self.channel.basic_consume(queue='viajes_host', on_message_callback=callback, auto_ack=True)
+        print('Esperando mensajes...')
+        self.channel.start_consuming()
 
     # Callback para manejar la respuesta del servidor
     def on_response(self, ch, method, props, body):
         # Si el ID de la respuesta coincide con el ID de la petición, guarda la respuesta
         if self.corr_id == props.correlation_id:
             self.response = body
-
-    # Método para verificar la disponibilidad de asientos
-    def check_seat_availability(self):
-        self.response = None
-        self.corr_id = str(uuid.uuid4())
-
-        # Crea el mensaje para verificar la disponibilidad de asientos
-        mensaje = f"{self.username};{self.ruc};"
-        for route_id, quantity in self.cart.items():
-            mensaje += f"{route_id},{quantity}/"
-        mensaje = mensaje[:-1]  # Elimina el último '/'
-
-        # Publica la solicitud de verificación en la cola de peticiones
-        self.channel.basic_publish(
-            exchange='',
-            routing_key='go-python-queue',
-            properties=pika.BasicProperties(
-                reply_to=self.callback_queue,
-                correlation_id=self.corr_id,
-            ),
-            body=mensaje)
-
-        # Espera la respuesta del servidor
-        self.connection.process_data_events(time_limit=None)
-        # Procesa la respuesta recibida
-        response_str = str(self.response, "utf-8")
-        available = response_str == "Venta Realizada"
-        return available
-
-    # Método para generar una factura
-    def generate_bill(self, mensaje):
-        self.response = None
-        self.corr_id = str(uuid.uuid4())
-        # Publica la solicitud de generación de factura en la cola
-        self.channel.basic_publish(
-            exchange='',
-            routing_key='go-python-queue',
-            properties=pika.BasicProperties(
-                reply_to=self.callback_queue,
-                correlation_id=self.corr_id,
-            ),
-            body=mensaje)
-        # Espera la respuesta del servidor
-        self.connection.process_data_events(time_limit=None)
-        # Devuelve la respuesta recibida
-        return str(self.response, "utf-8")
-
-    # Método para realizar la venta
-    def perform_sale(self):
-        if self.check_seat_availability():
-            mensaje = f"{self.username};{self.ruc};"
-            for route_id, quantity in self.cart.items():
-                mensaje += f"{route_id},{quantity}/"
-            mensaje = mensaje[:-1]  # Elimina el último '/'
-            return self.generate_bill(mensaje)
-        else:
-            return "No se pudo realizar la venta"
 
 # Crea un objeto de la clase System
 system = System()
@@ -216,27 +137,28 @@ def initial_page(page: ft.Page):
 
 # Define la función para mostrar los productos
 def show_products(page: ft.Page):
-    prods = system.get_products() # Obtiene los productos del servidor
-    prods = prods[:-1] # Elimina el ";" al final
-    prods = prods.split(";") # Separa la cadena en una lista de productos
-    page.clean() # Limpia la página 
-    rows_list = [] # Lista para almacenar las filas de la tabla
-    tf_list = [] # Lista para almacenar los campos de texto
+    prods = system.get_products()  # Obtiene los productos del servidor
+    prods = prods[:-1]  # Elimina el ";" al final
+    prods = prods.split(";")  # Separa la cadena en una lista de productos
+    page.clean()  # Limpia la página 
+    rows_list = []  # Lista para almacenar las filas de la tabla
+    tf_list = []  # Lista para almacenar los campos de texto
     for prod in prods:
-        items = prod.split(",") # Separa los detalles del producto
-        id = int(items[0]) # Obtiene el ID del producto
+        items = prod.split(",")  # Separa los detalles del producto
+        id = int(items[0])  # Obtiene el ID del producto
         tf = ft.TextField(
-            value=str(system.cart[id]) if id in system.cart else "0", # Muestra la cantidad en el carrito
+            value=str(system.cart[id]) if id in system.cart else "0",  # Muestra la cantidad en el carrito
             width=50,
             height=30,
             text_align=ft.TextAlign.CENTER,
             disabled=True,
         )
-        tf_list.append(tf) # Añade el campo de texto a la lista
+        tf_list.append(tf)  # Añade el campo de texto a la lista
 
         # Funciones para añadir o quitar productos del carrito
         def create_remove_func(id=id, tf=tf):
             return lambda e, item_id=id: system.edit_cart(item_id, -1, tf)
+
         def create_add_func(id=id, tf=tf):
             return lambda e, item_id=id: system.edit_cart(item_id, 1, tf)
 
@@ -268,7 +190,7 @@ def show_products(page: ft.Page):
                 )
             )
         ]
-        rows_list.append(temp) # Añade la fila a la lista
+        rows_list.append(temp)  # Añade la fila a la lista
 
     # Define los encabezados de la tabla
     col_names = ["ID", "Nombre", "Precio", "Acciones"]
@@ -328,7 +250,7 @@ def show_products(page: ft.Page):
 
 # Define la función para la página principal
 def main_page(page: ft.Page):
-    page.clean() # Limpia la página
+    page.clean()  # Limpia la página
     # Añade los elementos a la página
     page.add(ft.SafeArea(
         content=ft.Container(
@@ -363,7 +285,12 @@ def main_page(page: ft.Page):
 
 # Define la función para manejar la compra
 def purchase(page: ft.Page):
-    sale_result = system.perform_sale()
+    origen = input("---------Ingresa el origen:  \n---------\n->Lima\n->Puno\n->Tacna\n------------\n")
+    destino = input("---------Ingresa el destino:  \n---------\n->Lima\n->Puno\n->Tacna\n------------\n")
+    cantidad = input("---------Ingresa la cantidad de boletos:  \n")
+
+    system.send_messages(origen, destino, cantidad)
+
     page.clean()
     # Muestra el resultado de la compra
     page.add(ft.SafeArea(
@@ -371,7 +298,7 @@ def purchase(page: ft.Page):
             content=ft.Column(
                 controls=[
                     ft.Text(
-                        value=sale_result,
+                        value="Compra realizada",
                         font_family="Arial",
                         color="blue",
                         size=30,

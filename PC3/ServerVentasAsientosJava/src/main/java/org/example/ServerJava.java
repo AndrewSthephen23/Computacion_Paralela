@@ -14,11 +14,12 @@ public class ServerJava {
 
         // Establece la URL, el nombre de usuario y la contraseña
         // Establece la conexión a la base de datos PostgreSQL
-        postgresConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/salesbd","postgres","admin");
+        postgresConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/salesBD","postgres","admin");
 
     }
 
     // Método para obtener el id de la venta actual desde la base de datos
+
     private int getActualSale() throws SQLException {
         // Consulta SQL para obtener el id de venta más alto
         String query = "SELECT MAX(id_sales) FROM ventas";
